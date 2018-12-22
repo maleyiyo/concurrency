@@ -9,7 +9,8 @@ import redis.clients.jedis.JedisPool;
 public class RedisConfig {
 
     @Bean(name = "redisPool")
-    public JedisPool jedisPool(@Value("jedis.host")String host, @Value("jedis.port")int port) {
+    public JedisPool jedisPool(@Value("${jedis.host}")String host,
+                               @Value("${jedis.port}")int port) {
         return new JedisPool(host, port);
     }
 }
